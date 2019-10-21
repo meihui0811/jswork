@@ -1,5 +1,5 @@
 function sort(method){
-    let origin = document.getElementById('oriin').value
+    let origin = document.getElementById('origin').value
     let logs
     console.log(method)
     if(method=='bubble'){
