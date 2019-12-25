@@ -14,6 +14,7 @@
         };
         this.next.onclick = function () {
             obj.page = (obj.page >= obj.maxPage) ? obj.maxPage : (obj.page + 1);
+            obj.onChange();
         }
         this.last.onclick = function () {
             obj.page = obj.maxPage;
@@ -117,7 +118,7 @@
                 pageList.updateStatus();
                 comment.create(obj.data);
                 QueryString.set('page=' + pageList.page);
-                ProgressBar.complete();
+                progressBar.complete();
             });
         }
     });
