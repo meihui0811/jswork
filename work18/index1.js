@@ -24,7 +24,7 @@
     PageList.prototype.updateStatus = function () {
         this.first.disabled = (this.page <= 1);
         this.prev.disabled = (this.page <= 1);
-        this.next,disabled = (this.page >= this.maxPage);
+        this.next.disabled = (this.page >= this.maxPage);
         this.last.disabled = (this.page >= this.maxPage);
         this.pageNum.innerHTML = this.page;
     };
@@ -107,12 +107,12 @@
         first: document.getElementById('page_first'),
         prev: document.getElementById('page_prev'),
         next: document.getElementById('page_next'),
-        last: document.getElementById('page_next'),
+        last: document.getElementById('page_last'),
         pageNum: document.getElementById('page_num'),
         onChange: function () {
             comment.ajax('http://139.9.81.203:8090/ajax?page=' + this.page, function () {
-                ProgressBar = new ProgressBar(progressContainer);
-                ProgressBar.show();
+                progressBar = new ProgressBar(progressContainer);
+                progressBar.show();
             }, function (obj) {
                 pageList.maxPage = obj.maxPage;
                 pageList.updateStatus();
